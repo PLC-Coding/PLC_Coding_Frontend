@@ -1,78 +1,115 @@
-"use client";
-import Image from "next/image";
+// src/pages/HomePage.tsx
+import React from 'react';
+import Link from 'next/link';
+import TopBar from './Components/TopBar';    // Adjust path as needed
+import Button from './Components/Button';    // Adjust path as needed
+import Footer from './Components/Footer';    // Adjust path as needed
+import { COLORS } from './Components/brandColors'; // If you have a brandColors file
 
-import Footer from "./Components/Footer";
-import BaseButton from "@/app/Components/BaseButton"
-import { FiGrid } from "react-icons/fi";
-
-import React from "react";
-
-export default function Home() {
+const HomePage: React.FC = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            We have our first change here!
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
+    <div style={{ fontFamily: 'MyriadPro, sans-serif', backgroundColor: '#fff' }}>
+      {/* Top Bar with TSTC logo and menu */}
+      <TopBar />
 
-            <div className="flex flex-col items-center space-y-4">
-              <div className="flex items-center space-x-2 text-purple-500">
-                <FiGrid size={16}/>
-                <span className="text-sm font-medium">Primary Button</span>
-              </div>
-              <BaseButton
-                  text="This Is A button"
-                  color="bg-pink-500"
-                  textColor="text-white"
-                  size="large"
-                  icon={<FiGrid/>}
-                  onClick={() => alert("Button Clicked!")}
-              />
-            </div>
-            .
-          </li>
-          <li>I.</li>
-        </ol>
+      {/* Main content area */}
+      <main
+        style={{
+          maxWidth: '1280px',
+          margin: '0 auto',
+          padding: '2rem 1rem',
+        }}
+      >
+        {/* Page Title */}
+        <h1
+          style={{
+            textAlign: 'center',
+            fontSize: '2rem',
+            marginBottom: '1rem',
+            color: COLORS.texasBlue,
+            fontFamily: 'Bebas Neue, sans-serif',
+          }}
+        >
+          Canvas Script Repository
+        </h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-              className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        {/* Intro Paragraph */}
+        <p
+          style={{
+            textAlign: 'center',
+            maxWidth: '800px',
+            margin: '0 auto 2rem',
+            lineHeight: 1.5,
+            color: COLORS.texasBlue,
+          }}
+        >
+          Welcome to the Canvas Script Repository! Here, you’ll find a collection 
+          of customizable scripts to embed or run within your Canvas courses. 
+          Whether you’re looking to streamline your workflow, automate tasks, 
+          or enrich your course data, these scripts offer practical solutions 
+          to enhance your Canvas experience.
+        </p>
+      </main>
+
+      {/* Gray Section Bar with CTA Buttons */}
+      <section
+        style={{
+          width: '100%',
+          backgroundColor: '#e0e0e0', // light gray background
+          padding: '1rem 0',
+          margin: '2rem 0',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1280px',
+            margin: '0 auto',
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '10rem',
+          }}
+        >
+          {/* CTA Buttons */}
+          <Link href="/script-page" passHref>
+            <Button variant="primary">Script Directory</Button>
+            </Link>
+          <Link href="/meet-the-team" passHref>
+          <Button variant="primary">Meet the Team</Button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Additional Main Content (Video Section with 3D inset border) */}
+      <main
+        style={{
+          maxWidth: '1280px',
+          margin: '0 auto',
+          padding: '2rem 1rem',
+        }}
+      >
+        <div
+          style={{
+            width: '100%',
+            height: '400px',
+            backgroundColor: '#ccc',
+            // Brand-appropriate 3D inset border
+            border: `4px solid ${COLORS.texasBlue}`,
+            boxShadow: 'inset 2px 2px 5px rgba(0,0,0,0.3), inset -2px -2px 5px rgba(255,255,255,0.8)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '1.25rem',
+            color: '#666',
+          }}
+        >
+          Video 1280px
         </div>
       </main>
-      <Footer />
 
+      {/* Footer with TSTC branding, links, etc. */}
+      <Footer />
     </div>
   );
-}
+};
+
+export default HomePage;

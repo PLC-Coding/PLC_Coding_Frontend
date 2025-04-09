@@ -19,3 +19,26 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* index.css */
+@font-face {
+    font-family: 'MyriadPro';
+    src: url('/fonts/MyriadPro-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MyriadPro';
+    src: url('/fonts/MyriadPro-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Similarly for BebasNeue-Regular.ttf, Aller.ttf, etc. */
+
+body {
+    margin: 0;
+    font-family: 'MyriadPro', sans-serif; /* default body font */
+    background-color: #fff;
+}
