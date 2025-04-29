@@ -114,10 +114,21 @@ const TeamPage: React.FC = () => {
 
             {/* Member Card 3 */}
             <div style={memberCardStyle}>
-              <div style={photoPlaceholderStyle} />
+            <img
+    src="/images/sarah.png" // or use an external image URL
+    alt="Jacquelyn Rodriguez"
+    style={{
+      width: '80px',
+      height: '80px',
+      borderRadius: '50%',
+      objectFit: 'cover',
+      objectPosition: 'center 10%',
+      marginBottom: '0.5rem',
+    }}
+    />
               <h4 style={{ margin: '0.5rem 0 0 0', color: COLORS.texasBlue }}>Sarah Hintze</h4>
               <p style={{ margin: '0.25rem 0', fontStyle: 'italic', color: COLORS.texasBlue }}>Back End Creator</p>
-              <p style={{ textAlign: 'center', color: COLORS.texasBlue }}>Blurb about Sarah.</p>
+              <p style={{ textAlign: 'center', color: COLORS.texasBlue }}>I’ve been an Instructional Designer at TSTC for four years, collaborating closely with the Building Construction Technology (BCT) and Cybersecurity (CYS) programs. My work focuses on designing engaging, outcomes-driven course content that supports hands-on and online learning and aligns with industry standards.</p>
             </div>
 
             {/* Member Card 4 */}
