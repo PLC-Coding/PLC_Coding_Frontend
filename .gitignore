@@ -1,48 +1,41 @@
-# Node modules
-node_modules/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Build output
-.next/
-out/
-dist/
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
-# Vercel / Netlify / GH Pages build artifacts
-.vercel/
-.netlify/
-.cache/
+# testing
+/coverage
 
-# Logs
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
+.pnpm-debug.log*
 
-# OS files
-.DS_Store
-Thumbs.db
+# env files (can opt-in for committing if needed)
+.env*
 
-# Editor folders
-.idea/
-.vscode/
-*.swp
+# vercel
+.vercel
 
-# TypeScript cache
+# typescript
 *.tsbuildinfo
-
-# Env files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# GitHub Pages deploy folder (optional, if not committing `/out`)
-out/
-
-# Optional: lock files you don't want to track
-# package-lock.json
-# yarn.lock
-# pnpm-lock.yaml
-
-# Optional: next export fallback pages
-exported/
+next-env.d.ts
