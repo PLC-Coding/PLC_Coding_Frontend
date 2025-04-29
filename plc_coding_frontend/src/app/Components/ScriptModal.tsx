@@ -4,33 +4,41 @@ import React, { ReactNode } from 'react';
 interface ScriptModalProps {
   isOpen: boolean;
   title: string;
-  children: ReactNode;
+  children?: ReactNode; // <-- make children optional (important!)
   onClose: () => void;
   onRunScript: () => void;
 }
 
-const ScriptModal: React.FC<ScriptModalProps> = ({ isOpen, title, children, onClose, onRunScript }) => {
+const ScriptModal: React.FC<ScriptModalProps> = ({
+                                                   isOpen,
+                                                   title,
+                                                   children,
+                                                   onClose,
+                                                   onRunScript,
+                                                 }) => {
   if (!isOpen) return null;
 
   return (
-    <div style={overlayStyle}>
-      <div style={modalStyle}>
-        <div style={modalHeaderStyle}>
-          <h2 style={modalTitleStyle}>{title}</h2>
-          <button style={closeButtonStyle} onClick={onClose}>
-            &times;
-          </button>
-        </div>
-        <div style={modalContentStyle}>{children}</div>
-        <div style={modalFooterStyle}>
-          <button style={runButtonStyle} onClick={onRunScript}>
-            Run Script
-          </button>
+      <div style={overlayStyle}>
+        <div style={modalStyle}>
+          <div style={modalHeaderStyle}>
+            <h2 style={modalTitleStyle}>{title}</h2>
+            <button style={closeButtonStyle} onClick={onClose} aria-label="Close Modal">
+              &times;
+            </button>
+          </div>
+          {children && <div style={modalContentStyle}>{children}</div>}
+          <div style={modalFooterStyle}>
+            <button style={runButtonStyle} onClick={onRunScript}>
+              Run Script
+            </button>
+          </div>
         </div>
       </div>
-    </div>
   );
 };
+
+// --- Styles ---
 
 const overlayStyle: React.CSSProperties = {
   position: 'fixed',
@@ -73,7 +81,7 @@ const closeButtonStyle: React.CSSProperties = {
   border: 'none',
   fontSize: '1.5rem',
   cursor: 'pointer',
-  color: '#1d2757', // Texas Blue for the close button
+  color: '#1d2757', // Texas Blue
 };
 
 const modalContentStyle: React.CSSProperties = {

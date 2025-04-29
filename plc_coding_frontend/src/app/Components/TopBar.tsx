@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import Logo from './Logo';
 import Button from './Button';
-import { COLORS } from '../theme/brandColors'; // Adjust path if necessary
+
 
 const TopBar: React.FC = () => {
   const containerStyle: React.CSSProperties = {
@@ -23,7 +23,7 @@ const TopBar: React.FC = () => {
   return (
     <header style={containerStyle}>
       {/* Logo on the left */}
-      <Logo width={120} height={50} />
+      <Logo  />
 
       {/* Navigation Menu with buttons */}
       <nav style={navStyle}>

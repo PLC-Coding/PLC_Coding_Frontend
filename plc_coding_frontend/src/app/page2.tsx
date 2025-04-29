@@ -32,13 +32,14 @@ export default function Home() {
                 <span className="text-sm font-medium">Primary Button</span>
               </div>
               <BaseButton
-                  text="This Is A button"
                   color="bg-pink-500"
                   textColor="text-white"
                   size="large"
                   icon={<FiGrid/>}
                   onClick={() => alert("Button Clicked!")}
-              />
+              >
+                This Is A button
+              </BaseButton>
             </div>
             .
           </li>

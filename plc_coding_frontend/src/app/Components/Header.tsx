@@ -1,4 +1,3 @@
-// src/components/HeaderSection.tsx
 import React from 'react';
 import Button from './Button';
 import { COLORS } from './brandColors';
@@ -17,7 +16,7 @@ const HeaderSection: React.FC = () => {
   };
 
   const titleStyle: React.CSSProperties = {
-    fontFamily: 'Bebas Neue, sans-serif', // or MyriadPro if you prefer
+    fontFamily: 'Bebas Neue, sans-serif',
     fontSize: '3rem',
     color: COLORS.texasBlue,
     marginBottom: '1rem',
@@ -46,18 +45,22 @@ const HeaderSection: React.FC = () => {
   };
 
   return (
-    <section style={sectionStyle}>
-      <div style={contentStyle}>
-        <h1 style={titleStyle}>I'm a Header</h1>
-        <p style={subtitleStyle}>
-          Fresh ingredients newly baked into our super delicious food. Available
-          in a range of delicious flavors, delivered to your door.
-        </p>
-        <div style={buttonContainerStyle}>
-          <Button variant="primary">Home</Button>
-          <Button variant="primary">Script Directory</Button>
-          <Button variant="primary">Meet the Team</Button>
+      <section style={sectionStyle}>
+        <div style={contentStyle}>
+          <h1 style={titleStyle}>Welcome to the Canvas Script Repository</h1>
+          <p style={subtitleStyle}>
+            Fresh ingredients newly baked into our super delicious food. Available
+            in a range of delicious flavors, delivered to your door.
+          </p>
+          <div style={buttonContainerStyle}>
+            <Button variant="primary">Home</Button>
+            <Button variant="primary">Script Directory</Button>
+            <Button variant="primary">Meet the Team</Button>
+          </div>
         </div>
-      </div>
-      <div style={imagePlaceholderStyle} />
-    </sectio
+        <div style={imagePlaceholderStyle} />
+      </section>
+  );
+};
+
+export default HeaderSection;

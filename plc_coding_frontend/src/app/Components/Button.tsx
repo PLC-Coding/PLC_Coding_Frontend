@@ -5,8 +5,12 @@ import { COLORS } from './brandColors';
 type ButtonVariant = 'primary' | 'secondary' | 'ghost';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: ButtonVariant;
+    variant?: 'primary' | 'secondary' | 'ghost';
     children: React.ReactNode;
+    color?: string;
+    textColor?: string;
+    size?: string;
+    icon?: React.ReactNode;
 }
 
 const Button: React.FC<ButtonProps> = ({
