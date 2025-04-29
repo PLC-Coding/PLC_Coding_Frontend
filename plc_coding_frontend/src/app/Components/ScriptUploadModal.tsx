@@ -21,24 +21,21 @@ const ScriptUploadModal: React.FC<ScriptUploadModalProps> = ({ isOpen, onClose }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Process form data here (e.g., send to API)
     alert('Form submitted!');
     onClose();
   };
 
   return (
     <>
-      {/* Style block to override placeholder styling */}
       <style jsx>{`
         input::placeholder,
         textarea::placeholder {
-          color: #000 !important;
+          color: #666 !important;
         }
       `}</style>
 
       <div style={overlayStyle}>
         <div style={modalStyle}>
-          {/* Header */}
           <div style={modalHeaderStyle}>
             <h2 style={headerTitleStyle}>Script Upload</h2>
             <button style={closeButtonStyle} onClick={onClose}>
@@ -46,7 +43,6 @@ const ScriptUploadModal: React.FC<ScriptUploadModalProps> = ({ isOpen, onClose }
             </button>
           </div>
 
-          {/* Intro Text */}
           <p style={{ ...introTextStyle, fontWeight: 'bold' }}>
             The PLC_Coding Team invites all members of the Instructional Design and Support department 
             to contribute to the Script Directory by submitting their scripts. Whether you’re looking to 
@@ -59,16 +55,13 @@ const ScriptUploadModal: React.FC<ScriptUploadModalProps> = ({ isOpen, onClose }
             please provide your email when filling out the form.
           </p>
 
-          {/* Subheading */}
           <h3 style={subHeadingStyle}>Script Upload Form</h3>
 
-          {/* Form */}
           <form onSubmit={handleSubmit} style={formStyle}>
-            {/* LEFT COLUMN */}
             <div style={columnStyle}>
               <label style={labelStyle}>Script Title</label>
               <input
-                style={{ ...inputStyle, color: '#000' }}
+                style={{ ...inputStyle }}
                 type="text"
                 placeholder="Enter Title"
                 value={scriptTitle}
@@ -78,7 +71,7 @@ const ScriptUploadModal: React.FC<ScriptUploadModalProps> = ({ isOpen, onClose }
 
               <label style={labelStyle}>Script Type</label>
               <input
-                style={{ ...inputStyle, color: '#000' }}
+                style={{ ...inputStyle }}
                 type="text"
                 placeholder="Enter Type"
                 value={scriptType}
@@ -88,7 +81,7 @@ const ScriptUploadModal: React.FC<ScriptUploadModalProps> = ({ isOpen, onClose }
 
               <label style={labelStyle}>Script URL</label>
               <input
-                style={{ ...inputStyle, color: '#000' }}
+                style={{ ...inputStyle }}
                 type="url"
                 placeholder="Enter URL"
                 value={scriptURL}
@@ -97,7 +90,7 @@ const ScriptUploadModal: React.FC<ScriptUploadModalProps> = ({ isOpen, onClose }
 
               <label style={labelStyle}>Script Variables</label>
               <input
-                style={{ ...inputStyle, color: '#000' }}
+                style={{ ...inputStyle }}
                 type="text"
                 placeholder="Enter Variables"
                 value={scriptVariables}
@@ -105,11 +98,10 @@ const ScriptUploadModal: React.FC<ScriptUploadModalProps> = ({ isOpen, onClose }
               />
             </div>
 
-            {/* RIGHT COLUMN */}
             <div style={columnStyle}>
               <label style={labelStyle}>Description of Script</label>
               <textarea
-                style={{ ...textareaStyle, color: '#000' }}
+                style={{ ...textareaStyle }}
                 placeholder="Description"
                 value={scriptDescription}
                 onChange={(e) => setScriptDescription(e.target.value)}
@@ -118,7 +110,7 @@ const ScriptUploadModal: React.FC<ScriptUploadModalProps> = ({ isOpen, onClose }
 
               <label style={labelStyle}>Full Name</label>
               <input
-                style={{ ...inputStyle, color: '#000' }}
+                style={{ ...inputStyle }}
                 type="text"
                 placeholder="Enter Name"
                 value={fullName}
@@ -127,7 +119,7 @@ const ScriptUploadModal: React.FC<ScriptUploadModalProps> = ({ isOpen, onClose }
 
               <label style={labelStyle}>Email Address</label>
               <input
-                style={{ ...inputStyle, color: '#000' }}
+                style={{ ...inputStyle }}
                 type="email"
                 placeholder="Enter Email"
                 value={email}
@@ -140,13 +132,12 @@ const ScriptUploadModal: React.FC<ScriptUploadModalProps> = ({ isOpen, onClose }
                   checked={notify}
                   onChange={(e) => setNotify(e.target.checked)}
                 />
-                <span style={{ marginLeft: '0.5rem' }}>
+                <span style={{ marginLeft: '0.5rem', color: '#000' }}>
                   I want to be notified of the review status of my script.
                 </span>
               </div>
             </div>
 
-            {/* Buttons Row */}
             <div style={buttonRowStyle}>
               <button type="submit" style={submitButtonStyle}>
                 Submit
@@ -157,9 +148,8 @@ const ScriptUploadModal: React.FC<ScriptUploadModalProps> = ({ isOpen, onClose }
             </div>
           </form>
 
-          {/* Footer text or contact info */}
           <p style={footerTextStyle}>
-            Questions? Contact [Name] via [chat/email] at [email address].
+            Questions? Contact Travis Aschcraft via chat/email at travis.ashcraft@tstc.edu
           </p>
         </div>
       </div>
@@ -223,7 +213,7 @@ const closeButtonStyle: React.CSSProperties = {
 const introTextStyle: React.CSSProperties = {
   marginBottom: '1rem',
   lineHeight: 1.5,
-  color: '#333',
+  color: '#000',
 };
 
 const subHeadingStyle: React.CSSProperties = {
@@ -250,6 +240,7 @@ const columnStyle: React.CSSProperties = {
 
 const labelStyle: React.CSSProperties = {
   fontWeight: 'bold',
+  color: '#666',
 };
 
 const inputStyle: React.CSSProperties = {
@@ -257,7 +248,7 @@ const inputStyle: React.CSSProperties = {
   fontSize: '1rem',
   borderRadius: '4px',
   border: '1px solid #ccc',
-  color: '#000',
+  color: '#666',
 };
 
 const textareaStyle: React.CSSProperties = {
@@ -291,7 +282,7 @@ const submitButtonStyle: React.CSSProperties = {
 
 const closeButtonStyle2: React.CSSProperties = {
   backgroundColor: '#ccc',
-  color: '#333',
+  color: '#000',
   border: 'none',
   padding: '0.75rem 1.5rem',
   borderRadius: '4px',
@@ -303,6 +294,6 @@ const closeButtonStyle2: React.CSSProperties = {
 const footerTextStyle: React.CSSProperties = {
   marginTop: '1rem',
   fontSize: '0.875rem',
-  color: '#666',
+  color: '#000',
   textAlign: 'center',
 };

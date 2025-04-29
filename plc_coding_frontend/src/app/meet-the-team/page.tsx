@@ -76,15 +76,37 @@ const TeamPage: React.FC = () => {
           >
             {/* Member Card 1 */}
             <div style={memberCardStyle}>
-              <div style={photoPlaceholderStyle} />
+            <img
+    src="/images/kagan.png" // or use an external image URL
+    alt="Kagan Love"
+    style={{
+      width: '80px',
+      height: '80px',
+      borderRadius: '50%',
+      objectFit: 'cover',
+      objectPosition: 'center 10%',
+      marginBottom: '0.5rem',
+    }}
+  />
               <h4 style={{ margin: '0.5rem 0 0 0', color: COLORS.texasBlue}}>Kagan Love</h4>
               <p style={{ margin: '0.25rem 0', fontStyle: 'italic', color: COLORS.texasBlue}}>Front End Creator</p>
-              <p style={{ textAlign: 'center', color: COLORS.texasBlue }}>Blurb about Kagan.</p>
+              <p style={{ textAlign: 'center', color: COLORS.texasBlue }}>Kagan LOVES Christmas, but he has also learned to love coding!</p>
             </div>
 
             {/* Member Card 2 */}
             <div style={memberCardStyle}>
-              <div style={photoPlaceholderStyle} />
+            <img
+    src="/images/jacquelyn.png" // or use an external image URL
+    alt="Jacquelyn Rodriguez"
+    style={{
+      width: '80px',
+      height: '80px',
+      borderRadius: '50%',
+      objectFit: 'cover',
+      objectPosition: 'center 10%',
+      marginBottom: '0.5rem',
+    }}
+    />
               <h4 style={{ margin: '0.5rem 0 0 0', color: COLORS.texasBlue }}>Jacquelyn Rodriguez</h4>
               <p style={{ margin: '0.25rem 0', fontStyle: 'italic', color: COLORS.texasBlue }}>Front End Creator</p>
               <p style={{ textAlign: 'center', color: COLORS.texasBlue }}>Blurb about Jacquelyn.</p>
