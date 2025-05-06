@@ -31,7 +31,7 @@ const TopBar: React.FC = () => {
           <Button variant="secondary">Home</Button>
         </Link>
         <Link href="/script-page" passHref>
-          <Button variant="secondary">Script Directory</Button>
+          <Button variant="secondary">API Directory</Button>
         </Link>
         <Link href="/meet-the-team" passHref>
           <Button variant="secondary">Meet the Team</Button>

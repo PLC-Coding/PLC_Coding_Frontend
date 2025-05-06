@@ -30,7 +30,7 @@ const HomePage: React.FC = () => {
                         fontFamily: 'Bebas Neue, sans-serif',
                     }}
                 >
-                    Canvas Script Repository
+                    Canvas API Repository
                 </h1>
 
                 {/* Intro Paragraph */}
@@ -43,8 +43,8 @@ const HomePage: React.FC = () => {
                         color: COLORS.texasBlue,
                     }}
                 >
-                    Welcome to the Canvas Script Repository! Here, you’ll find a collection
-                    of customizable scripts to embed or run within your Canvas courses.
+                    Welcome to the Canvas API Repository! Here, you’ll find a collection
+                    of customizable API scripts to embed or run within your Canvas courses.
                     Whether you’re looking to streamline your workflow, automate tasks,
                     or enrich your course data, these scripts offer practical solutions
                     to enhance your Canvas experience.
@@ -71,7 +71,7 @@ const HomePage: React.FC = () => {
                         {/* Wrap Buttons inside <a> tags inside Link */}
                         <Link href="/script-page" passHref legacyBehavior>
                             <a style={{ textDecoration: 'none' }}>
-                                <Button variant="primary">Script Directory</Button>
+                                <Button variant="primary">API Directory</Button>
                             </a>
                         </Link>
                         <Link href="/meet-the-team" passHref legacyBehavior>
