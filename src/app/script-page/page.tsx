@@ -1,133 +1,215 @@
-// src/pages/ScriptPage.tsx
+// CanvasAPIsPage.tsx – updated to include Email fields in each form
 "use client";
 
 import React, { useState } from 'react';
 import TopBar from '../Components/TopBar';
 import Footer from '../Components/Footer';
-import ScriptModal from '../Components/ScriptModal';
-import ScriptUploadModal from '../Components/ScriptUploadModal';
-import ScriptDetail from '../Components/ScriptDetail';
-import Button from '../Components/Button';
 import { COLORS } from '../Components/brandColors';
 
-const ScriptPage: React.FC = () => {
-    const [selectedScript, setSelectedScript] = useState<string | null>(null);
-    const [uploadModalOpen, setUploadModalOpen] = useState<boolean>(false);
+const CanvasAPIsPage: React.FC = () => {
+  /* ---------------- PDF FILES form state ---------------- */
+  const [pdfToken, setPdfToken] = useState('');
+  const [pdfCourse, setPdfCourse] = useState('');
+  const [pdfEmail, setPdfEmail] = useState('');
 
-    const openModal = (scriptName: string) => {
-        setSelectedScript(scriptName);
-    };
+  /* --------------- CURRENT INSTRUCTORS form state --------------- */
+  const [instToken, setInstToken] = useState('');
+  const [instCourse, setInstCourse] = useState('');
+  const [instEmail, setInstEmail] = useState('');
 
-    const closeModal = () => {
-        setSelectedScript(null);
-    };
+  /* --------------------- Handlers --------------------- */
+  const handlePdfSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert(`PDF Files – Token: ${pdfToken}\nCourse ID: ${pdfCourse}\nEmail: ${pdfEmail}`);
+  };
 
-    const openUploadModal = () => {
-        setUploadModalOpen(true);
-    };
+  const handleInstSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert(`Current Instructors – Token: ${instToken}\nCourse ID: ${instCourse}\nEmail: ${instEmail}`);
+  };
 
-    const closeUploadModal = () => {
-        setUploadModalOpen(false);
-    };
+  return (
+    <div style={{ fontFamily: 'MyriadPro, sans-serif', backgroundColor: '#fff' }}>
+      <TopBar />
 
-    // Dummy runScript function (you can replace this later)
-    const runScript = (scriptName: string) => {
-        alert(`Running script: ${scriptName}`);
-    };
+      <main style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1rem' }}>
+        {/* ---------- PAGE TITLE ---------- */}
+        <h1
+          style={{
+            textAlign: 'center',
+            fontFamily: 'Bebas Neue, sans-serif',
+            fontSize: '2.5rem',
+            color: COLORS.texasBlue,
+            marginBottom: '0.75rem',
+          }}
+        >
+          Canvas APIs
+        </h1>
 
-    const scripts = [
-        {
-            name: 'Script 1',
-            blurb: 'Automates X, Y, and Z...',
-            image: '/images/script1.png',
-        },
-        {
-            name: 'Script 2',
-            blurb: 'Helps with data analysis for ABC courses...',
-            image: '/images/script2.png',
-        },
-        {
-            name: 'Script 3',
-            blurb: 'Tracks user progress and performance...',
-            image: '/images/script3.png',
-        },
-    ];
+        {/* ---------- INTRO PARAGRAPH ---------- */}
+        <p style={{ textAlign: 'center', lineHeight: 1.4, maxWidth: '650px', margin: '0 auto 2.5rem', color: '#000' }}>
+          To utilize the APIs below, you will need to generate an Access Token. Refer to the Get Access Token video on the Home Page if you need assistance generating a token.
+        </p>
 
-    return (
-        <div style={{ fontFamily: 'MyriadPro, sans-serif', backgroundColor: '#fff' }}>
-            <TopBar />
+        {/* ========================= PDF FILES SECTION ========================= */}
+        <section style={sectionStyle}>
+          <h2 style={sectionHeadingStyle}>PDF Files</h2>
+          <p style={sectionSubTextStyle}>
+            Returns a list of PDF files from a course. Complete the fields below then click&nbsp;‘Run’.
+          </p>
 
-            <main
-                style={{
-                    maxWidth: '1280px',
-                    margin: '0 auto',
-                    padding: '2rem 1rem',
-                    color: COLORS.texasBlue,
-                }}
-            >
-                <h1
-                    style={{
-                        marginBottom: '2rem',
-                        fontSize: '3rem',
-                        fontWeight: 'bold',
-                        textAlign: 'center',
-                        fontFamily: 'Bebas Neue, sans-serif',
-                        color: COLORS.texasBlue,
-                    }}
-                >
-                    Script Page
-                </h1>
+          <form onSubmit={handlePdfSubmit} style={formRowStyle}>
+            {/* Token & Course ID */}
+            <div style={inputBlockStyle}>
+              <label style={labelStyle}>Access Token</label>
+              <input
+                type="text"
+                placeholder="Enter Access Token"
+                value={pdfToken}
+                onChange={(e) => setPdfToken(e.target.value)}
+                style={inputStyle}
+              />
+            </div>
+            <div style={inputBlockStyle}>
+              <label style={labelStyle}>Course ID Number</label>
+              <input
+                type="text"
+                placeholder="Enter Course ID"
+                value={pdfCourse}
+                onChange={(e) => setPdfCourse(e.target.value)}
+                style={inputStyle}
+              />
+            </div>
+            {/* Email */}
+            <div style={{ ...inputBlockStyle, gridColumn: '1 / -1', alignItems: 'center' }}>
+              <label style={labelStyle}>Email</label>
+              <input
+                type="email"
+                placeholder="Enter Email"
+                value={pdfEmail}
+                onChange={(e) => setPdfEmail(e.target.value)}
+                style={{ ...inputStyle, maxWidth: '260px' }}
+              />
+            </div>
+            {/* Run Button */}
+            <div style={{ gridColumn: '1 / -1', textAlign: 'center', marginTop: '1rem' }}>
+              <button type="submit" style={runButtonStyle}>Run</button>
+            </div>
+          </form>
+        </section>
 
-                {/* Upload Script Button */}
-                <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                    <Button variant="primary" onClick={openUploadModal}>
-                        Upload Script
-                    </Button>
-                </div>
+        {/* ---------- DIVIDER ---------- */}
+        <hr style={{ border: 'none', borderTop: `2px solid ${COLORS.texasBlue}`, margin: '3rem 0' }} />
 
-                {/* Script Details List */}
-                <div
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'flex-start',
-                        gap: '2rem',
-                    }}
-                >
-                    {scripts.map((script) => (
-                        <ScriptDetail
-                            key={script.name}
-                            scriptName={script.name}
-                            scriptBlurb={script.blurb}
-                            imageSrc={script.image}
-                            onDetailClick={() => openModal(script.name)}
-                        />
-                    ))}
-                </div>
-            </main>
+        {/* ===================== CURRENT INSTRUCTORS SECTION ===================== */}
+        <section style={sectionStyle}>
+          <h2 style={sectionHeadingStyle}>Current Instructors</h2>
+          <p style={sectionSubTextStyle}>
+            Returns a list of the current users in a course. Complete the fields below then click&nbsp;‘Run’.
+          </p>
 
-            {/* Script Modal Popup */}
-            <ScriptModal
-                isOpen={selectedScript !== null}
-                title={selectedScript || ''}
-                onClose={closeModal}
-                onRunScript={() => {
-                    if (selectedScript) {
-                        runScript(selectedScript);
-                    }
-                }}
-            >
-                <p>
-                    Details and code for <strong>{selectedScript}</strong> go here.
-                </p>
-            </ScriptModal>
+          <form onSubmit={handleInstSubmit} style={formRowStyle}>
+            {/* Token & Course ID */}
+            <div style={inputBlockStyle}>
+              <label style={labelStyle}>Access Token</label>
+              <input
+                type="text"
+                placeholder="Enter Access Token"
+                value={instToken}
+                onChange={(e) => setInstToken(e.target.value)}
+                style={inputStyle}
+              />
+            </div>
+            <div style={inputBlockStyle}>
+              <label style={labelStyle}>Course ID Number</label>
+              <input
+                type="text"
+                placeholder="Enter Course ID"
+                value={instCourse}
+                onChange={(e) => setInstCourse(e.target.value)}
+                style={inputStyle}
+              />
+            </div>
+            {/* Email */}
+            <div style={{ ...inputBlockStyle, gridColumn: '1 / -1', alignItems: 'center' }}>
+              <label style={labelStyle}>Email</label>
+              <input
+                type="email"
+                placeholder="Enter Email"
+                value={instEmail}
+                onChange={(e) => setInstEmail(e.target.value)}
+                style={{ ...inputStyle, maxWidth: '260px' }}
+              />
+            </div>
+            {/* Run Button */}
+            <div style={{ gridColumn: '1 / -1', textAlign: 'center', marginTop: '1rem' }}>
+              <button type="submit" style={runButtonStyle}>Run</button>
+            </div>
+          </form>
+        </section>
+      </main>
 
-            {/* Script Upload Modal Popup */}
-            <ScriptUploadModal isOpen={uploadModalOpen} onClose={closeUploadModal} />
-
-            <Footer />
-        </div>
-    );
+      <Footer />
+    </div>
+  );
 };
 
-export default ScriptPage;
+export default CanvasAPIsPage;
+
+/* ===================== SHARED STYLES ===================== */
+const sectionStyle: React.CSSProperties = {
+  marginBottom: '2rem',
+};
+
+const sectionHeadingStyle: React.CSSProperties = {
+  fontFamily: 'Bebas Neue, sans-serif',
+  fontSize: '1.25rem',
+  color: COLORS.texasBlue,
+  marginBottom: '0.25rem',
+};
+
+const sectionSubTextStyle: React.CSSProperties = {
+  marginBottom: '1.5rem',
+  color: '#000',
+  fontSize: '0.875rem',
+  lineHeight: 1.4,
+};
+
+const formRowStyle: React.CSSProperties = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+  gap: '1rem',
+  maxWidth: '600px',
+  margin: '0 auto',
+};
+
+const inputBlockStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+};
+
+const labelStyle: React.CSSProperties = {
+  textAlign: 'center',
+  fontWeight: 600,
+  marginBottom: '0.25rem',
+  color: '#000',
+  fontSize: '0.8125rem',
+};
+
+const inputStyle: React.CSSProperties = {
+  padding: '0.5rem',
+  border: '1px solid #000',
+  borderRadius: '4px',
+  fontSize: '0.95rem',
+};
+
+const runButtonStyle: React.CSSProperties = {
+  backgroundColor: '#d13138',
+  color: '#fff',
+  border: 'none',
+  padding: '0.65rem 2.5rem',
+  borderRadius: '25px',
+  fontSize: '1rem',
+  fontWeight: 700,
+  cursor: 'pointer',
+};
