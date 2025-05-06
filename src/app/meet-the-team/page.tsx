@@ -109,14 +109,14 @@ const TeamPage: React.FC = () => {
     />
               <h4 style={{ margin: '0.5rem 0 0 0', color: COLORS.texasBlue }}>Jacquelyn Rodriguez</h4>
               <p style={{ margin: '0.25rem 0', fontStyle: 'italic', color: COLORS.texasBlue }}>Front End Creator</p>
-              <p style={{ textAlign: 'center', color: COLORS.texasBlue }}>Blurb about Jacquelyn.</p>
+              <p style={{ textAlign: 'center', color: COLORS.texasBlue }}>Hi! I jumped into coding with absolutely zero experience—and haven’t looked back since. I’ve been working as an Instructional Designer at TSTC for the past 1.5 years, and I’m currently supporting the PRO program’s transition to PBE.</p>
             </div>
 
             {/* Member Card 3 */}
             <div style={memberCardStyle}>
             <img
     src="/images/sarah.png" // or use an external image URL
-    alt="Jacquelyn Rodriguez"
+    alt="Sarah Hintze"
     style={{
       width: '80px',
       height: '80px',
