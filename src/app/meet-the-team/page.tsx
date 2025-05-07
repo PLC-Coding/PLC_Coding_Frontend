@@ -37,7 +37,7 @@ const TeamPage: React.FC = () => {
         >
             <img
                 src="/images/Travis.jpg" // or use an external image URL
-                alt="Haley Marek"
+                alt="Travis Ashcraft"
                 style={{
                   width: '80px',
                   height: '80px',
@@ -47,7 +47,6 @@ const TeamPage: React.FC = () => {
                   marginBottom: '0.5rem',
                 }}
               />
-          />
           <h2 style={{ fontSize: '1.25rem', margin: 0, color: COLORS.texasBlue }}>Travis Ashcraft</h2>
           <p style={{ margin: '0.25rem 0', fontStyle: 'italic', color: COLORS.texasBlue }}>PLC Team Lead</p>
           <p style={{ maxWidth: '400px', textAlign: 'center', color: COLORS.texasBlue }}>
@@ -169,12 +168,4 @@ const memberCardStyle: React.CSSProperties = {
   flexDirection: 'column',
   alignItems: 'center',
   width: '180px',
-};
-
-const photoPlaceholderStyle: React.CSSProperties = {
-  width: '80px',
-  height: '80px',
-  backgroundColor: '#ccc',
-  borderRadius: '50%',
-  marginBottom: '0.5rem',
 };

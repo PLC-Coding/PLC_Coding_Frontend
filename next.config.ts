@@ -1,12 +1,14 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig  = {
-    //output: 'export',
+const repoName = "PLC_Coding_Frontend";
+
+const nextConfig: NextConfig = {
+    output: "export",
     images: {
-        unoptimized: true, // Required because GH Pages can't optimize images dynamically
+        unoptimized: true,
     },
-/*    basePath: '/PLC_Coding_Frontend',
-    assetPrefix: '/PLC_Coding_Frontend/',*/
+    basePath: `/${repoName}`,
+    assetPrefix: `/${repoName}/`,
 };
 
 export default nextConfig;
