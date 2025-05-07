@@ -112,9 +112,7 @@ const HomePage: React.FC = () => {
                 </section>
 
             </main>
-
-            {/* Footer with TSTC branding, links, etc. */}
-            <Footer/>
+            
         </div>
     );
 };

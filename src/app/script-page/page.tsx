@@ -148,8 +148,6 @@ const CanvasAPIsPage: React.FC = () => {
           </form>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 };
