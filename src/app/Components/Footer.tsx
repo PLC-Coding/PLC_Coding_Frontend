@@ -7,7 +7,7 @@ export default function Footer() {
                 {/* Logo and Branding */}
                 <div className="flex items-center gap-2">
                     <Image
-                        src="/plc-logo.png" // Replace with correct logo path
+                        src="images/PLC_CodingLogo.jpg" // Replace with correct logo path
                         alt="PLC Coding Logo"
                         width={32}
                         height={32}
