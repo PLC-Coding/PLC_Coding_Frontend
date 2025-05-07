@@ -70,12 +70,12 @@ const HomePage: React.FC = () => {
                     >
                         {/* Wrap Buttons inside <a> tags inside Link */}
                         <Link href="/script-page" passHref legacyBehavior>
-                            <a style={{ textDecoration: 'none' }}>
+                            <a style={{textDecoration: 'none'}}>
                                 <Button variant="primary">API Directory</Button>
                             </a>
                         </Link>
                         <Link href="/meet-the-team" passHref legacyBehavior>
-                            <a style={{ textDecoration: 'none' }}>
+                            <a style={{textDecoration: 'none'}}>
                                 <Button variant="primary">Meet the Team</Button>
                             </a>
                         </Link>
@@ -92,23 +92,29 @@ const HomePage: React.FC = () => {
                 >
                     <div
                         style={{
-                            width: '100%',
-                            height: '400px',
-                            backgroundColor: '#ccc',
                             border: `4px solid ${COLORS.texasBlue}`,
+                            display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            fontSize: '1.25rem',
-                            color: '#666',
+                            overflow: 'hidden',
                         }}
                     >
-                        Video 1280px
+                        <img
+                            src="/images/Create-an-Access-Token.gif" // replace with your actual path
+                            alt="Demo video"
+                            style={{
+                                width: '100%',
+                                maxHeight: '400px',
+                                objectFit: 'cover',
+                            }}
+                        />
                     </div>
                 </section>
+
             </main>
 
             {/* Footer with TSTC branding, links, etc. */}
-            <Footer />
+            <Footer/>
         </div>
     );
 };
