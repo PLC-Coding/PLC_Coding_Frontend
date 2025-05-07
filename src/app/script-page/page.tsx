@@ -23,11 +23,15 @@ const CanvasAPIsPage: React.FC = () => {
     try {
       const query = new URLSearchParams({
         course_id: pdfCourse,
-        accessToken: pdfToken,
-        userEmail: pdfEmail,
       });
 
-      const res = await fetch(`https://plc-coding-backend.onrender.com/api/exportfiles?${query.toString()}`);
+      const res = await fetch(`https://plc-coding-backend.onrender.com/api/exportfiles?${query.toString()}`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${pdfToken}`,
+          'X-User-Email': pdfEmail,
+        },
+      });
 
       if (!res.ok) {
         const errorData = await res.json();
@@ -42,6 +46,7 @@ const CanvasAPIsPage: React.FC = () => {
       alert('An unexpected error occurred while contacting the server.');
     }
   };
+
 
 
   const handleInstSubmit = (e: React.FormEvent) => {
