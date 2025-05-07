@@ -17,10 +17,32 @@ const CanvasAPIsPage: React.FC = () => {
   const [instEmail, setInstEmail] = useState('');
 
   /* --------------------- Handlers --------------------- */
-  const handlePdfSubmit = (e: React.FormEvent) => {
+  const handlePdfSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`PDF Files – Token: ${pdfToken}\nCourse ID: ${pdfCourse}\nEmail: ${pdfEmail}`);
+
+    try {
+      const query = new URLSearchParams({
+        course_id: pdfCourse,
+        accessToken: pdfToken,
+        userEmail: pdfEmail,
+      });
+
+      const res = await fetch(`https://plc-coding-backend.onrender.com/api/exportfiles?${query.toString()}`);
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        alert(`Error: ${errorData.error}`);
+        return;
+      }
+
+      const data = await res.json();
+      alert(data.message || 'PDF file list emailed successfully!');
+    } catch (error) {
+      console.error('Fetch error:', error);
+      alert('An unexpected error occurred while contacting the server.');
+    }
   };
+
 
   const handleInstSubmit = (e: React.FormEvent) => {
     e.preventDefault();
