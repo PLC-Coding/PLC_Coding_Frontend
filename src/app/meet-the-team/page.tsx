@@ -3,7 +3,6 @@
 import React from 'react';
 // Import your existing components as needed:
 import TopBar from '../Components/TopBar';  // Adjust path
-import Footer from '../Components/Footer';  // Adjust path
 import { COLORS } from '../Components/brandColors'; // Adjust path
 
 const TeamPage: React.FC = () => {

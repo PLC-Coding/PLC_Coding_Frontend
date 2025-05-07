@@ -3,7 +3,6 @@
 
 import React, { useState } from 'react';
 import TopBar from '../Components/TopBar';
-import Footer from '../Components/Footer';
 import { COLORS } from '../Components/brandColors';
 
 const CanvasAPIsPage: React.FC = () => {

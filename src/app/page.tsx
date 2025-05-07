@@ -3,7 +3,6 @@ import React from 'react';
 import Link from 'next/link';
 import TopBar from './Components/TopBar';    // Adjust path if needed
 import Button from './Components/Button';    // Adjust path if needed
-import Footer from './Components/Footer';    // Adjust path if needed
 import { COLORS } from './Components/brandColors'; // Adjust path if needed
 
 const HomePage: React.FC = () => {
