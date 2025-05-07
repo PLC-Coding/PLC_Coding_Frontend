@@ -49,10 +49,32 @@ const CanvasAPIsPage: React.FC = () => {
 
 
 
-  const handleInstSubmit = (e: React.FormEvent) => {
+  const handleInstSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`Current Instructors – Token: ${instToken}\nCourse ID: ${instCourse}\nEmail: ${instEmail}`);
+
+    try {
+      const res = await fetch(`https://plc-coding-backend.onrender.com/api/exportusers?course_id=${instCourse}`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${instToken}`,
+          'x-user-email': instEmail,
+        },
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        alert(`Error: ${errorData.error}`);
+        return;
+      }
+
+      const data = await res.json();
+      alert(data.message || 'User list PDF emailed successfully!');
+    } catch (error) {
+      console.error('Fetch error:', error);
+      alert('An unexpected error occurred while contacting the server.');
+    }
   };
+
 
   return (
     <div style={{ fontFamily: 'MyriadPro, sans-serif', backgroundColor: '#fff' }}>
@@ -69,12 +91,12 @@ const CanvasAPIsPage: React.FC = () => {
             marginBottom: '0.75rem',
           }}
         >
-          Canvas APIs
+          Canvas API Calls
         </h1>
 
         {/* ---------- INTRO PARAGRAPH ---------- */}
         <p style={{ textAlign: 'center', lineHeight: 1.4, maxWidth: '650px', margin: '0 auto 2.5rem', color: '#000' }}>
-          To utilize the APIs below, you will need to generate an Access Token. Refer to the Get Access Token video on the Home Page if you need assistance generating a token.
+          To utilize the API calls below, you will need to generate an Access Token. Refer to the Get Access Token video on the Home Page if you need assistance generating a token.
         </p>
 
         {/* ========================= PDF FILES SECTION ========================= */}
