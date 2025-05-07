@@ -52,7 +52,7 @@ const TeamPage: React.FC = () => {
           <p style={{ maxWidth: '400px', textAlign: 'center', color: COLORS.texasBlue }}>
               Travis leads the PLC_Coding team with a passion for innovative design and functional code. 
               With a strong background in development, education, and team leadership, he brings projects to life through clear vision and collaborative energy. 
-              When he's not coding or creating, he's likely exploring new ideas or helping others grow in their own creative journeys.
+              When he&#39;s not coding or creating, he&#39;s likely exploring new ideas or helping others grow in their own creative journeys.
           </p>
         </section>
 

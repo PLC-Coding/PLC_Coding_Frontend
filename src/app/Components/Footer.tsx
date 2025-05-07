@@ -2,52 +2,30 @@
 
 export default function Footer() {
     return (
-        <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center p-4 border-t border-gray-200 dark:border-gray-800">
-            <a
-                className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-                href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
+        <footer className="flex flex-col items-center justify-center text-center px-4 py-6 border-t border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900">
+            {/* Logo */}
+            <div className="flex items-center gap-2 mb-2">
                 <Image
-                    aria-hidden
-                    src="/file.svg"
-                    alt="File icon"
-                    width={16}
-                    height={16}
+                    src="/plc-logo.png" // Update to your actual logo file
+                    alt="PLC Coding Logo"
+                    width={32}
+                    height={32}
                 />
-                Learn
-            </a>
-            <a
-                className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-                href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <Image
-                    aria-hidden
-                    src="/window.svg"
-                    alt="Window icon"
-                    width={16}
-                    height={16}
-                />
-                Examples
-            </a>
-            <a
-                className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-                href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <Image
-                    aria-hidden
-                    src="/globe.svg"
-                    alt="Globe icon"
-                    width={16}
-                    height={16}
-                />
-                Go to nextjs.org →
-            </a>
+                <span className="text-lg font-semibold text-[#1d2757]">PLC CODING</span>
+            </div>
+
+            {/* Contact Line */}
+            <p className="text-[#1d2757] text-sm">
+                <strong>Questions?</strong><br />
+                Contact <span className="font-medium">Travis</span> via email at{" "}
+                <a
+                    href="mailto:travis@example.com"
+                    className="text-blue-600 underline hover:text-blue-800"
+                >
+                    travis@example.com
+                </a>
+                .
+            </p>
         </footer>
     );
 }
