@@ -198,6 +198,8 @@ const inputStyle: React.CSSProperties = {
   border: '1px solid #000',
   borderRadius: '4px',
   fontSize: '0.95rem',
+  color: '#000',              // Ensures dark text
+  backgroundColor: '#fff',    // Ensures white background
 };
 
 const runButtonStyle: React.CSSProperties = {
