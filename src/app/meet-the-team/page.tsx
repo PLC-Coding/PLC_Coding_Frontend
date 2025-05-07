@@ -50,7 +50,9 @@ const TeamPage: React.FC = () => {
           <h2 style={{ fontSize: '1.25rem', margin: 0, color: COLORS.texasBlue }}>Travis Ashcraft</h2>
           <p style={{ margin: '0.25rem 0', fontStyle: 'italic', color: COLORS.texasBlue }}>PLC Team Lead</p>
           <p style={{ maxWidth: '400px', textAlign: 'center', color: COLORS.texasBlue }}>
-            Blurb about Travis—his role, background, and fun facts!
+              Travis leads the PLC_Coding team with a passion for innovative design and functional code. 
+              With a strong background in development, education, and team leadership, he brings projects to life through clear vision and collaborative energy. 
+              When he's not coding or creating, he's likely exploring new ideas or helping others grow in their own creative journeys.
           </p>
         </section>
 
